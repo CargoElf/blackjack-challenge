@@ -29,8 +29,16 @@ RSpec.describe ArrayExtension::Where do
     expect(characters.where(quote: /if/i).where(:rank => 3)).to eq [charles]
   end
 
-  it 'returns an empty array when no matches' do
+  it 'returns an empty array when no matches found' do
+    expect(characters.where(quote: 'ummmmmm....')).to eq []
+  end
 
+  it 'returns all elements of array when no args given' do
+    expect(characters.where).to eq characters
+  end
+
+  it 'raise error if attribute is not found' do
+    expect { characters.where(a: 'What am I?') }.to raise_error ArgumentError, /Invalid attribute: 'a'/
   end
 
 end
