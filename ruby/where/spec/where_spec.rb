@@ -37,7 +37,7 @@ RSpec.describe ArrayExtension::Where do
     expect(characters.where).to eq characters
   end
 
-  it 'raise error if attribute is not found' do
+  it 'raises error if attribute is not found' do
     expect { characters.where(name: 'The Wolf', a: 'What am I?') }.to raise_error ArgumentError, "Invalid attribute: 'a'"
   end
 
