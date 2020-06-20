@@ -1,6 +1,6 @@
 require_relative '../where'
 
-RSpec.describe Where do
+RSpec.describe ArrayExtension::Where do
 
   let(:boris)   { {:name => 'Boris The Blade', :quote => "Heavy is good. Heavy is reliable. If it doesn't work you can always hit them.", :title => 'Snatch', :rank => 4} }
   let(:charles) { {:name => 'Charles De Mar', :quote => 'Go that way, really fast. If something gets in your way, turn.', :title => 'Better Off Dead', :rank => 3}}
@@ -9,19 +9,19 @@ RSpec.describe Where do
 
   let(:characters) { [boris, charles, wolf, glen] }
 
-  it '.test_where_with_exact_match' do
+  it 'test_where_with_exact_match' do
     expect(characters.where(:name => 'The Wolf')).to eq [wolf]
   end
 
-  it '.test_where_with_partial_match' do
+  it 'test_where_with_partial_match' do
     expect(characters.where(:title => /^B.*/)).to eq [charles, glen]
   end
 
-  it '.test_where_with_mutliple_exact_results' do
+  it 'test_where_with_mutliple_exact_results' do
     expect(characters.where(:rank => 4)).to eq [boris, wolf]
   end
 
-  it '.test_with_with_multiple_criteria' do
+  it 'test_with_with_multiple_criteria' do
     expect(characters.where(:rank => 4, :quote => /get/)).to eq [wolf]
   end
 
