@@ -1,4 +1,4 @@
-require_relative '../blackjack'
+require_relative '../card'
 
 RSpec.describe Card do
   let(:card) { Card.new(:hearts, :ten, 10) }
