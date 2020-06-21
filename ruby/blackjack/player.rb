@@ -6,10 +6,10 @@ class Player
   end
 
   def hand_string
-    "#{Class.name.to_s} has:#{@hand.to_s}"
+    "#{self.class.to_s} has:#{@hand.to_s}"
   end
 
   def points
-    @hand.hand_value
+    @hand.hand_total
   end
 end
