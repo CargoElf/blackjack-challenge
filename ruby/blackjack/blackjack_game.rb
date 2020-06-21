@@ -9,6 +9,22 @@ class BlackjackGame
     @player = Player.new
     @dealer = Dealer.new
     @deck   = Deck.new
+
+    @player.hand = Hand.new
+    @dealer.hand = Hand.new
+
+    run
+  end
+
+  def run
+    deal_initial_cards
+
+  end
+
+  def deal_initial_cards
+    first_player_card = @deck.deal_card
+    first_player_card.visible = false
+    @player.hand << [first_player_card, @deck.deal_card]
   end
 
 end

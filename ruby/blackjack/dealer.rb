@@ -1,16 +1,17 @@
 class Dealer
-  attr_reader :hand
+  attr_accessor :hand
 
   def initialize
+    @visible_cards = []
   end
 
-  def show_visable_cards
-    @hand.each do |c|
-      puts "#{c.name} of #{c.suit}" if c.visible
+  def show_visable_total
+    @hand.each do |card|
+      @visible_cards << card if card.visible
     end
   end
 
   def check_hand_value
-    
+
   end
 end
