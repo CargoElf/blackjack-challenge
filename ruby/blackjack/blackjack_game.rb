@@ -4,6 +4,7 @@ require_relative 'deck'
 
 
 class BlackjackGame
+  attr_reader :player, :dealer, :deck
 
   def initialize
     @player = Player.new
@@ -12,23 +13,24 @@ class BlackjackGame
 
     @player.hand = Hand.new
     @dealer.hand = Hand.new
-
-    run
-  end
-
-  def run
-    deal_initial_cards
-    
-
-
   end
 
   def deal_initial_cards
-    first_player_card = @deck.deal_card
-    first_player_card.visible = false
-    @player.hand = [first_player_card, @deck.deal_card]
+    @player.hand = [@deck.deal_card, @deck.deal_card]
     game_won(@player) if @player.has_21?
+
     @dealer.hand = [@deck.deal_card, @deck.deal_card]
+    game_won(@dealer) if @dealer.has_21?
+  end
+
+  def find_winner
+    if @player.points > @dealer.points
+      'Player wins!'
+    elsif @dealer.points > @player.points
+      'Dealer wins!'
+    else
+      'Push!'
+    end
   end
 
 end
