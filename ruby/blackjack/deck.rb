@@ -19,15 +19,15 @@ class Deck
     :ace   => [11, 1]}
 
   def initialize
-    shuffle
+    shuffle!
   end
 
-  def deal_card card_visible: true
+  def deal_card
     random = rand(@playable_cards.size)
     @playable_cards.delete_at(random)
   end
 
-  def shuffle
+  def shuffle!
     @playable_cards = []
     SUITS.each do |suite|
       NAME_VALUES.each do |name, value|
