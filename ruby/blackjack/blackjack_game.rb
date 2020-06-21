@@ -18,13 +18,17 @@ class BlackjackGame
 
   def run
     deal_initial_cards
+    
+
 
   end
 
   def deal_initial_cards
     first_player_card = @deck.deal_card
     first_player_card.visible = false
-    @player.hand << [first_player_card, @deck.deal_card]
+    @player.hand = [first_player_card, @deck.deal_card]
+    game_won(@player) if @player.has_21?
+    @dealer.hand = [@deck.deal_card, @deck.deal_card]
   end
 
 end
