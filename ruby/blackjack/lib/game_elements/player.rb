@@ -9,7 +9,7 @@ class Player
 
   def hand_string
     output = "#{self.class.to_s} has:".cyan
-    output << "#{@hand.to_s}\n".center(14)
+    output << "#{@hand.to_s}\n"
     output << "Point Total: #{points}".magenta
   end
 
