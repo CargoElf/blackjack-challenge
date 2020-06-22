@@ -52,7 +52,7 @@ module GameplayLoops
       @dealer.hand.cards << @deck.deal_card
       puts @dealer.hand_string
       find_loser if bust?
-      
+
       line_break
       break if @winner
     end

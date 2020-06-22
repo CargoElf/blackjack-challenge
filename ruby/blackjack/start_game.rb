@@ -1,7 +1,8 @@
 require_relative 'blackjack_game'
+require_relative 'string_extensions'
 
-puts 'Blackjack: Ruby terminal Style'
-puts 'Press enter to start'
+puts 'Blackjack: '.cyan + 'Ruby '.red.blink + 'Terminal Style'.cyan
+puts "Press enter to start".magenta.blink
 gets.chomp
 
 BlackjackGame.instance.run
