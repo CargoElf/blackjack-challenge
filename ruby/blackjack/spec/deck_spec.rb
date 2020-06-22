@@ -14,7 +14,8 @@ RSpec.describe Deck do
     end
 
     it 'test_shuffled_deck_has_52_playable_cards' do
-      deck.shuffle!
+      6.times { deck.playable_cards.pop }
+      deck.shuffle
       expect(deck.playable_cards.size).to eq 52
     end
 

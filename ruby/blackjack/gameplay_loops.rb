@@ -28,7 +28,7 @@ module GameplayLoops
     dealer_turn_loop
     return if @winner
 
-    find_winner
+    set_winner
   end
 
   def player_turn_loop
@@ -38,7 +38,7 @@ module GameplayLoops
     while hit == 'Y'
       @player.hand.cards << @deck.deal_card
       puts @player.hand_string
-      find_loser if bust?
+      set_loser if bust?
       line_break
       break if @winner
 
@@ -51,7 +51,7 @@ module GameplayLoops
     while @dealer.hit?
       @dealer.hand.cards << @deck.deal_card
       puts @dealer.hand_string
-      find_loser if bust?
+      set_loser if bust?
 
       line_break
       break if @winner

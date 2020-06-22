@@ -1,9 +1,6 @@
 require_relative 'card'
-require 'singleton'
 
 class Deck
-  include Singleton
-
   attr_accessor :playable_cards
   SUITS = [:hearts, :diamonds, :spades, :clubs]
   NAME_VALUES = {
@@ -22,7 +19,7 @@ class Deck
     :ace   => [11, 1]}
 
   def initialize
-    shuffle!
+    shuffle
   end
 
   def deal_card
@@ -30,7 +27,7 @@ class Deck
     @playable_cards.delete_at(random)
   end
 
-  def shuffle!
+  def shuffle
     @playable_cards = []
     SUITS.each do |suite|
       NAME_VALUES.each do |name, value|

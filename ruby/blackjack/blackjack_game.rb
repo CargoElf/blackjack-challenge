@@ -6,12 +6,12 @@ class BlackjackGame
   include GameplayLoops
 
   attr_accessor :winner
-  attr_reader :player, :dealer, :deck
+  attr_reader :player, :dealer, :deck, :winner
 
   def initialize
     @player = Player.new
     @dealer = Dealer.new
-    @deck   = Deck.instance
+    @deck   = Deck.new
 
     @player.hand = Hand.new
     @dealer.hand = Hand.new
@@ -29,12 +29,11 @@ class BlackjackGame
     @player.points > 21 || @dealer.points > 21
   end
 
-  def find_loser
-    @winner = @dealer if @player.points > 21
-    @winner = @player if @dealer.points > 21
+  def set_loser card_player
+    @winner = card_player.is_a?(Dealer) ? @player : @dealer
   end
 
-  def find_winner
+  def set_winner
     return if @winner
     if @player.points > @dealer.points
       @winner = @player
@@ -55,7 +54,7 @@ class BlackjackGame
   end
 
   def reset_game
-    @deck.shuffle!
+    @deck.shuffle
     @player.hand = Hand.new
     @dealer.hand = Hand.new
     @winner = nil
@@ -64,5 +63,4 @@ class BlackjackGame
   def setup_hand card_player
     2.times { card_player.hand.cards << @deck.deal_card }
   end
-
 end
