@@ -1,10 +1,11 @@
-%w( player dealer deck hand gameplay_loops ).each { |f| require_relative f }
+%w( player dealer deck hand ).each { |f| require_relative "../game_elements/#{f}" }
+require_relative 'gameplay_loops'
 require 'singleton'
 
 class BlackjackGame
   include Singleton
   include GameplayLoops
-  
+
   attr_reader :player, :dealer, :deck, :winner
 
   def initialize

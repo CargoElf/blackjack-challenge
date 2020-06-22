@@ -1,5 +1,5 @@
-require_relative '../hand'
-require_relative '../card'
+require_relative '../lib/game_elements/hand'
+require_relative '../lib/game_elements/card'
 
 RSpec.describe Hand do
   let(:hand) { Hand.new }

@@ -1,4 +1,4 @@
-require_relative '../blackjack_game'
+require_relative '../lib/game_logic/blackjack_game'
 
 RSpec.describe BlackjackGame do
   let(:blackjack_game) { BlackjackGame.instance }

@@ -1,4 +1,4 @@
-require_relative '../card'
+require_relative '../lib/game_elements/card'
 
 RSpec.describe Card do
   describe '.attributes' do

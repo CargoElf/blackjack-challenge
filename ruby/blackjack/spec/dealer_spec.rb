@@ -1,4 +1,4 @@
-require_relative '../dealer'
+require_relative '../lib/game_elements/dealer'
 
 RSpec.describe Dealer do
   let(:dealer)  { Dealer.new }

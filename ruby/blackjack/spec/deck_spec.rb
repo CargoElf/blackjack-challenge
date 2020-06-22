@@ -1,4 +1,4 @@
-require_relative '../deck'
+require_relative '../lib/game_elements/deck'
 
 RSpec.describe Deck do
   let(:deck) { Deck.new }
