@@ -10,7 +10,7 @@ module GameplayLoops
 
       puts "Would you like to play another_round? (y/n)"
       another_round = get_player_input
-      line_break
+      puts "\e[H\e[2J"
     end
   end
 
@@ -38,7 +38,7 @@ module GameplayLoops
     while hit == 'Y'
       @player.hand.cards << @deck.deal_card
       puts @player.hand_string
-      set_loser if bust?
+      set_loser @player if bust?
       line_break
       break if @winner
 
@@ -51,7 +51,7 @@ module GameplayLoops
     while @dealer.hit?
       @dealer.hand.cards << @deck.deal_card
       puts @dealer.hand_string
-      set_loser if bust?
+      set_loser @dealer if bust?
 
       line_break
       break if @winner

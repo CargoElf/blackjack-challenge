@@ -4,8 +4,7 @@ require 'singleton'
 class BlackjackGame
   include Singleton
   include GameplayLoops
-
-  attr_accessor :winner
+  
   attr_reader :player, :dealer, :deck, :winner
 
   def initialize
