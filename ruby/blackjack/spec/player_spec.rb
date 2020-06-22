@@ -1,17 +1,15 @@
 require_relative '../player'
 require_relative '../card'
-require_relative '../hand'
 
 RSpec.describe Player do
 
   describe '.attrubutes' do
-    it 'is initialized with an empty array, hand' do
-      expect(Player.new.hand).to eq []
+    it 'is initialized with an hand object' do
+      expect(Player.new.hand).to be_instance_of Hand
     end
   end
 
   context 'Methods' do
-    let(:hand)    { Hand.new }
     let(:player)  { Player.new }
     let(:cards)   {
       [[:hearts, :ace, [11, 1]], [:hearts, :ten, 10]].map do |p|
@@ -20,7 +18,6 @@ RSpec.describe Player do
     }
 
     before do
-      player.hand = hand
       player.hand.cards = cards
     end
 

@@ -1,6 +1,9 @@
 require_relative 'card'
+require 'singleton'
 
 class Deck
+  include Singleton
+
   attr_accessor :playable_cards
   SUITS = [:hearts, :diamonds, :spades, :clubs]
   NAME_VALUES = {

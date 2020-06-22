@@ -1,7 +1,7 @@
 require_relative '../blackjack_game'
 
 RSpec.describe BlackjackGame do
-  let(:blackjack_game) { BlackjackGame.new }
+  let(:blackjack_game) { BlackjackGame.instance }
 
   describe '.attributes' do
     it 'has a player' do

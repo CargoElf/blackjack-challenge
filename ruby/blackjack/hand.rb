@@ -6,9 +6,9 @@ class Hand
   end
 
   def hand_total
-    @cards.sort! { |a, b|  b.name <=> a.name }
+    sorted_cards = @cards.sort { |a, b|  b.name <=> a.name }
 
-    totaled_cards = @cards.reduce(0) do |total, card|
+    totaled_vals = sorted_cards.reduce(0) do |total, card|
       ace = card.name == :ace
 
       if ace && (total > 10)
@@ -20,7 +20,7 @@ class Hand
       end
     end
 
-    totaled_cards
+    totaled_vals
   end
 
   def to_s
