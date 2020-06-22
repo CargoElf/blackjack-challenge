@@ -1,5 +1,6 @@
 require_relative '../player'
 require_relative '../card'
+require_relative '../lib/string_extensions/string_extensions'
 
 RSpec.describe Player do
 

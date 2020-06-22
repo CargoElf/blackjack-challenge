@@ -73,7 +73,7 @@ RSpec.describe Hand do
         ]
 
         expect(hand.to_s).to eq(
-          "\n| ACE of HEARTS |\n| ACE of DIAMONDS |\n| ACE of SPADES |\n| ACE of CLUBS |"
+          "\n  - |   ACE of ❤️  HEARTS ❤️     |\n  - |  ACE of ♦️  DIAMONDS ♦️    |\n  - |   ACE of ♠️  SPADES ♠️     |\n  - |    ACE of ♣️  CLUBS ♣️     |"
         )
       end
     end

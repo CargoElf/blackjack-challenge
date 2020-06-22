@@ -10,6 +10,8 @@ module GameplayLoops
 
       puts "Would you like to play another_round? (y/n)"
       another_round = get_player_input
+
+      #clear screen
       puts "\e[H\e[2J"
     end
   end
