@@ -1,8 +1,8 @@
 Vue.component('quote-item', {
-  props: ['quote'],
+  props: ['quote', 'index'],
   template: `
     <tr>
-      <td>{{ quote.quote }}</td>
-    </td>
+      <td>{{ quote.quote }} ::: {{index}}</td>
+    </tr>
     `
 })

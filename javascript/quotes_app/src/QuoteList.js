@@ -1,12 +1,15 @@
 Vue.component('quote-list', {
-  props: ['quotes'],
+  props: ['quotes', 'viewStart', 'viewEnd'],
   template: `
     <div>
       <table>
         <tbody>
           <quote-item
-            v-for='quote in quotes'
+            v-for='(quote, index) in quotes'
             v-bind:quote='quote'
+            v-show='index >= viewStart && index <= viewEnd'
+            v-bind:index='index'
+            :key='quote.id'
           />
         </tbody>
       </table>
