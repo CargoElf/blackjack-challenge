@@ -8,17 +8,30 @@
   </head>
   <body>
     <div id="app">
-      <span @click='previousPage'><~</span>
-      <span v-for='num in pageList'><span @click='currentPage = num'>{{ num }}</span></span>
-      <span @click='nextPage'>~></span>
-      <span @click="theme='games'">games</span>
-      <span @click="theme='movies'">movies</span>
-      <span @click="theme=null">all</span>
-      <input @click='perPage' v-model='perPage' id='pages' type='number' min='1' max='15' step='1'>
-      <textarea @keyup='search' v-model='search' ></textarea>
+      <h1>Movie and Game Quotes</h1>
+      <div>
+        <button @click='previousPage'><~</button>
+        <span v-for='num in pageList'><button @click='currentPage=num'>{{ num }}</button></span>
+        <button @click='nextPage'>~></button>
+        <br>
+        <br>
+        <label>Quotes per page</label>
+        <br>
+        <input @click='perPage' v-model='perPage' id='pages' type='number' min='1' max='15' step='1'>
+      </div>
+      <div>
+        <h3>Themes</h3>
+        <button @click="theme='games'">games</button>
+        <button @click="theme='movies'">movies</button>
+        <button @click="theme=null">all</button>
+      </div>
 
-
-
+      <br>
+      <search-quotes
+        v-bind:search='search'
+        />
+      <br>
+      <br>
 
       <quote-list
         v-bind:quotes='searchQuotes'
